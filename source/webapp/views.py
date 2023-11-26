@@ -1,26 +1,26 @@
 from django.shortcuts import render
-from webapp.models import Article
+from webapp.models import Task
 from django.http import HttpResponseRedirect
 
 
 def index_view(request):
-    articles = Article.objects.all()
-    return render(request, 'index.html', {'articles': articles})
+    tasks = Task.objects.all()
+    return render(request, 'index.html', {'tasks': tasks})
 
 
-def article_view(request):
-    article_id = request.GET.get('id')
-    article = Article.objects.get(id=article_id)
-    return render(request, 'article_view.html', {'article': article})
+def task_view(request):
+    task_id = request.GET.get('id')
+    tasks = Task.objects.get(id=task_id)
+    return render(request, 'tasks_view.html', {'tasks': tasks})
 
 
-def article_create_view(request):
+def create_task_view(request):
     if request.method == "GET":
-        return render(request, 'article_create.html')
+        return render(request, 'tasks_create.html')
     elif request.method == "POST":
-        Article.objects.create(
-            title=request.POST.get('title'),
-            content=request.POST.get('content'),
-            author=request.POST.get('author')
+        Task.objects.create(
+            description=request.POST.get('description'),
+            status=request.POST.get('status'),
+            date_of_completion=request.POST.get('date_of_completion')
         )
         return HttpResponseRedirect('/')
