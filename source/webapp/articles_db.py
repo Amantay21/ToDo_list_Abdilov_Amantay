@@ -1,2 +1,2 @@
-class ArticlesDB:
-    articles = []
+class TasksDB:
+    Tasks = []

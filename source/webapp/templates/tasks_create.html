@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +13,18 @@
     {% csrf_token %}
 
     <label>Task:</label><br/>
-    <input type="text" name="desciption"/><br/>
+    <input type="text" name="description"/><br/>
 
     <label>status:</label><br/>
-    <textarea name="status"></textarea><br/>
+    <select name="status" id="">
+        {% for status in status_choices %}
+            <option value="{{ status.0 }}">{{ status.1 }}</option>
+        {% endfor %}
+    </select>
+    <br/>
 
+    <label>Deadline:</label><br/>
+    <input type="text" name="date_of_completion"><br/>
     <input type="submit" value="Send"/>
 </form>
 
