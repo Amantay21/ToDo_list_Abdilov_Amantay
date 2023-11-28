@@ -19,6 +19,7 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.description }}</h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.date_of_completion }}</h6>
                 <a href="task/?id={{ task.pk }}" class="card-link">Подробнее...</a>
+                <input href="delete/?id={{ task.pk }}" type="submit" value="Удалить"/>
             </div>
         </div>
 

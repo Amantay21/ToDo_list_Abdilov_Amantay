@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+
 from webapp.models import Task, status_choices
 from django.http import HttpResponseRedirect
 
@@ -16,6 +18,15 @@ def task_view(request):
     return render(request, 'tasks_view.html', context)
 
 
+def delete_task(request):
+    task_id = request.GET.get('id')
+    task = get_object_or_404(Task, id=task_id)
+
+    if request.method == "POST":
+        task.delete()
+        return HttpResponseRedirect(reverse('/'))
+
+    return HttpResponseRedirect('/')
 def create_task_view(request):
 
     if request.method == "GET":
