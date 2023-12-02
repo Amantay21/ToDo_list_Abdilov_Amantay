@@ -17,12 +17,12 @@ def task_view(request, *args, pk, **kwargs):
 
 
 def delete_task(request):
-    task_id = request.GET.get('id')
-    task = get_object_or_404(Task, id=task_id)
     if request.method == "POST":
+        task_id = request.POST.get('id')
+        task = get_object_or_404(Task, id=task_id)
         task.delete()
-        return redirect('tasks_view', pk=task.pk)
-    return redirect('tasks_view', pk=task.pk)
+        return redirect('index')
+
 
 
 def create_task_view(request):

@@ -5,20 +5,25 @@
 {% block content %}
     <h1>Tasks</h1>
 
-    <a href="tasks/add/" class="card-link">Добавить задачу</a>
+    <div class="tasks row g-4 ">
     {% for task in tasks %}
-        <div class="card my-3" style="width: 18rem;">
-            <div class="card-body">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="card my-3 " style="width: 18rem;">
+            <div class="card-body ">
                 <h5 class="card-title">{{ task.title }}</h5>
-                <h5 class="card-title">{{ task.status }}</h5>
+                <h5 class="card-title">{{ task.get_status_display }}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.description }}</h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.date_of_completion }}</h6>
+
                 <a href="{% url 'tasks_view' pk=task.pk %}" class="card-link">Подробнее...</a>
-                <input href="{% url 'tasks_view' pk=task.pk %}" type="submit" value="Удалить"/>
+                <form action="task/delete/" method="POST">
+                {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ task.id }}">
+                <button class="btn btn-danger "  type="submit" >Удалить</button>
+            </form>
             </div>
         </div>
-
-
-
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}
