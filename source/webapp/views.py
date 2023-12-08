@@ -26,7 +26,6 @@ def delete_task(request):
 
 
 def create_task_view(request):
-    task = get_object_or_404(Task, pk=pk)
     if request.method == "GET":
         return render(request, 'tasks_create.html', {'status_choices': status_choices})
     elif request.method == "POST":
@@ -39,14 +38,14 @@ def create_task_view(request):
 
         return redirect('tasks_view', pk=task.pk)
 
-def update_task_view(request):
+def update_task_view(request,pk):
+    task = get_object_or_404(Task, pk=pk)
     if request.method == "GET":
-        return render(request, 'tasks_create.html', {'status_choices': status_choices})
+        return render(request, 'task_update.html', {'task': task, 'status_choices': status_choices})
     elif request.method == "POST":
-
-
-        task.title = request.POST.get('title'),
-        task.description = request.POST.get('description'),
-        task.status = request.POST.get('status'),
+        task.title = request.POST.get('title')
+        task.description = request.POST.get('description')
+        task.status = request.POST.get('status')
         task.date_of_completion = request.POST.get('date_of_completion')
+        task.save()
         return redirect('tasks_view', pk=task.pk)

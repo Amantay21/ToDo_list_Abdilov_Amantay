@@ -15,7 +15,7 @@
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.description }}</h6>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.date_of_completion }}</h6>
                 <a href="{% url 'tasks_view' pk=task.pk %}" class="card-link">Подробнее...</a>
-                <a href="{% url 'tasks_update' pk=task.pk %}" class="card-link">Редактировать</a>
+                <a href="{% url 'task_update' pk=task.pk %}" class="card-link">Редактировать</a>
                 <form action="task/delete/" method="POST">
                 {% csrf_token %}
                     <input type="hidden" name="id" value="{{ task.id }}">
