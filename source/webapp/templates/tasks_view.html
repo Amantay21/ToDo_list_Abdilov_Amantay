@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 {#{% load static %}#}
-
 {% block title %}{{ article.title }}{% endblock %}
 {% block menu %}<a class="nav-link" aria-current="page"  href="{% url 'index' %}">На главную</a>{% endblock %}
-
 {% block content %}
     <h1>Task</h1>
-
         <div class="card" >
             <div class="card-body">
                 <h3 class="card-title">{{ task.title }}</h3>
                 <h5 class="card-title">{{ task.description }}</h5>
                 <p class="card-text">{{ task.date_of_completion }}</p>
                 <h5>{{ task.get_status_display }}</h5>
-
-
+                <li><a href="{% url 'task_update' task.pk %}">Edit</a></li>
+                <li><a href="{% url 'task_delete' task.pk %}">Delete</a></li>
             </div>
         </div>
-
 {% endblock %}

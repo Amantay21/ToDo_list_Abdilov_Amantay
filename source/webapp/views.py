@@ -49,3 +49,10 @@ def update_task_view(request,pk):
         task.date_of_completion = request.POST.get('date_of_completion')
         task.save()
         return redirect('tasks_view', pk=task.pk)
+def task_delete_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'task_delete.html', context={'task': task})
+    elif request.method == 'POST':
+        task.delete()
+        return redirect('index')

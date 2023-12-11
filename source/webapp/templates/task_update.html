@@ -10,7 +10,7 @@
         <p><label>Description</label><br/>
             <input type="text" name="description" value="{{ task.description }}"></p>
         <p><label>Text</label><br/>
-            <input type="textarea" name="date_of_completion"value="{{ task.date_of_completion }}"></p>
+            <input type="textarea" name="date_of_completion">{{ task.date_of_completion }}</p>
         <p><label>Status</label><br/>
             <select name="status" id="">
         {% for status in status_choices %}
