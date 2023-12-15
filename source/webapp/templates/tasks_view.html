@@ -8,8 +8,14 @@
             <div class="card-body">
                 <h3 class="card-title">{{ task.title }}</h3>
                 <h5 class="card-title">{{ task.description }}</h5>
-                <p class="card-text">{{ task.date_of_completion }}</p>
-                <h5>{{ task.get_status_display }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{% for type in task.type.all %}
+                  {{ type.title }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}</h6>
+
+                <p class="card-text">Created date: {{ task.created_date }}</p>
+                <p class="card-text">Updated date: {{ task.updated_date }}</p>
+
+                <h5>{{ task.status.title }}</h5>
                 <li><a href="{% url 'task_update' task.pk %}">Edit</a></li>
                 <li><a href="{% url 'task_delete' task.pk %}">Delete</a></li>
             </div>

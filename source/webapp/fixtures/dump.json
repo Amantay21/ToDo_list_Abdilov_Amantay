@@ -1,20 +1,100 @@
 [
-  {
-    "model": "auth.user",
+{
+    "model": "webapp.type",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$600000$Ty3XQWyA5RkILsaefMbwkd$vMmJ+G0mmhM0DohEuJowRdgq+XqZ1kg34iCslqhl2AY=",
-      "last_login": "2023-11-24T13:30:23.688Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2023-11-24T13:30:05.354Z",
-      "groups": [],
-      "user_permissions": []
+        "title": "Enhancement"
     }
-  }
+},
+{
+    "model": "webapp.type",
+    "pk": 2,
+    "fields": {
+        "title": "Bug"
+    }
+},
+{
+    "model": "webapp.type",
+    "pk": 3,
+    "fields": {
+        "title": "Task"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 1,
+    "fields": {
+        "title": "New"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 2,
+    "fields": {
+        "title": "In Progress"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 3,
+    "fields": {
+        "title": "Done"
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 1,
+    "fields": {
+        "title": "Title 1",
+        "description": "qwertyuiop[]",
+        "status": 2,
+        "created_date": "2023-12-15",
+        "updated_date": "2023-12-15",
+        "type": [
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 2,
+    "fields": {
+        "title": "Title 2",
+        "description": "qwertyuiop[]\\",
+        "status": 1,
+        "created_date": "2023-12-15",
+        "updated_date": "2023-12-15",
+        "type": [
+            1
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 3,
+    "fields": {
+        "title": "Title 3",
+        "description": "qwertiop[]asdfgjkl",
+        "status": 3,
+        "created_date": "2023-12-15",
+        "updated_date": "2023-12-15",
+        "type": [
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 4,
+    "fields": {
+        "title": "some task",
+        "description": "zxcvbnm,./ASDFGJKL;'",
+        "status": 2,
+        "created_date": "2023-12-15",
+        "updated_date": "2023-12-15",
+        "type": [
+            2
+        ]
+    }
+}
 ]
