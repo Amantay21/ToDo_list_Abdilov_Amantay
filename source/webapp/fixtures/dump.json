@@ -3,7 +3,7 @@
     "model": "webapp.type",
     "pk": 1,
     "fields": {
-        "title": "Enhancement"
+        "title": "Task"
     }
 },
 {
@@ -17,7 +17,7 @@
     "model": "webapp.type",
     "pk": 3,
     "fields": {
-        "title": "Task"
+        "title": "Enhancement"
     }
 },
 {
@@ -46,55 +46,35 @@
     "pk": 1,
     "fields": {
         "title": "Title 1",
-        "description": "qwertyuiop[]",
-        "status": 2,
-        "created_date": "2023-12-15",
-        "updated_date": "2023-12-15",
-        "type": [
-            2
-        ]
+        "description": "description",
+        "status": 1,
+        "type": 3,
+        "created_date": "2023-12-16T14:27:21.340Z",
+        "updated_date": "2023-12-16T14:27:21.340Z"
     }
 },
 {
     "model": "webapp.task",
     "pk": 2,
     "fields": {
-        "title": "Title 2",
-        "description": "qwertyuiop[]\\",
-        "status": 1,
-        "created_date": "2023-12-15",
-        "updated_date": "2023-12-15",
-        "type": [
-            1
-        ]
+        "title": "Title2",
+        "description": "description",
+        "status": 2,
+        "type": 1,
+        "created_date": "2023-12-16T14:27:36.353Z",
+        "updated_date": "2023-12-16T14:27:36.353Z"
     }
 },
 {
     "model": "webapp.task",
     "pk": 3,
     "fields": {
-        "title": "Title 3",
-        "description": "qwertiop[]asdfgjkl",
+        "title": "Title3",
+        "description": "description",
         "status": 3,
-        "created_date": "2023-12-15",
-        "updated_date": "2023-12-15",
-        "type": [
-            3
-        ]
-    }
-},
-{
-    "model": "webapp.task",
-    "pk": 4,
-    "fields": {
-        "title": "some task",
-        "description": "zxcvbnm,./ASDFGJKL;'",
-        "status": 2,
-        "created_date": "2023-12-15",
-        "updated_date": "2023-12-15",
-        "type": [
-            2
-        ]
+        "type": 2,
+        "created_date": "2023-12-16T14:27:52.717Z",
+        "updated_date": "2023-12-16T14:27:52.717Z"
     }
 }
 ]

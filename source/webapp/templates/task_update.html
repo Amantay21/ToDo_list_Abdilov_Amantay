@@ -3,20 +3,8 @@
 {% block content %}
     <h1>Update Task</h1>
 
-    <form method="POST" action="{% url "task_update" task.pk %}">
-        {% csrf_token %}
-        <p><label>Title</label><br/>
-            <input type="text" name="title" value="{{ task.title }}"></p>
-        <p><label>Description</label><br/>
-            <input type="text" name="description" value="{{ task.description }}"></p>
-        <p><label>Text</label><br/>
-            <input type="textarea" name="date_of_completion">{{ task.date_of_completion }}</p>
-        <p><label>Status</label><br/>
-            <select name="status" id="">
-        {% for status in status_choices %}
-            <option value="{{ status.0 }}">{{ status.1 }}</option>
-            {% endfor %}</select></p>
-        <p><input type="submit" value="Submit"></p>
+<form action="" method="post">
+    {% include 'partial/forms.html' with value_submit='Update' %}
 </form>
-    </form>
+
 {% endblock %}
