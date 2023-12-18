@@ -37,7 +37,7 @@ class TaskCreateView(TemplateView):
     def post(self, request, *args, **kwargs):
         form = TaskForms(data=request.POST)
         if form.is_valid():
-            types = form.cleaned_data.pop('type')
+            types = form.cleaned_data.pop('types')
             task = Task.objects.create(
                 title=form.cleaned_data['title'],
                 description=form.cleaned_data['description'],
@@ -78,6 +78,15 @@ class TaskUpdateView(TemplateView):
             return render(request, 'task_update.html', {'form': form})
 
 
+class TaskDeleteView(View):
+    def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
+        return render(request, 'task_delete.html', {'task': task})
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
+        task.delete()
+        return redirect('index')
 def delete_task(request):
     if request.method == "POST":
         task_id = request.POST.get('id')

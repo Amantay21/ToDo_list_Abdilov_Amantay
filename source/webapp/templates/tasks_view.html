@@ -15,7 +15,7 @@
                 <p class="card-text">Created date: {{ task.created_date }}</p>
                 <p class="card-text">Updated date: {{ task.updated_date }}</p>
 
-                <h5>{{ task.status.title }}</h5>
+                <h5>Status: {{ task.status.title }}</h5>
                 <li><a href="{% url 'task_update' task.pk %}">Edit</a></li>
                 <li><a href="{% url 'task_delete' task.pk %}">Delete</a></li>
             </div>

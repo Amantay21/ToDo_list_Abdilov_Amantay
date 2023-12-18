@@ -9,6 +9,6 @@
         {% csrf_token %}
         <p><input type="submit" value="Confirm"></p>
         </form>
-    <p class="text-center" ><input href="{% url "index" %}" value="Cancel"></p>
+    <a href="{% url "index" %}" class="text-center" >Cancel</a>
 
 {% endblock %}
