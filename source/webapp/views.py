@@ -3,7 +3,6 @@ from django.urls import reverse
 
 from webapp.forms import TaskForms
 from webapp.models import Task
-from django.http import HttpResponseRedirect
 from django.views.generic import View, TemplateView
 
 
@@ -95,33 +94,4 @@ def delete_task(request):
         return redirect('index')
 
 
-# def update_task(request, pk):
-#     task = get_object_or_404(Task, pk=pk)
-#     if request.method == "GET":
-#         form = TaskForms(initial={
-#             'title': task.title,
-#             'description': task.description,
-#             'status': task.status,
-#             'type': task.type,
-#         })
-#         return render(request, 'product_update.html', {'form': form, 'task': task})
-#     elif request.method == "POST":
-#         form = TaskForms(data=request.POST)
-#         if form.is_valid():
-#             task.title = request.POST.get('title')
-#             task.description = request.POST.get('description')
-#             task.status = request.POST.get('status')
-#             task.type = request.POST.get('type')
-#             task.save()
-#             return redirect('index')
-#         else:
-#             return render(request, 'task_update.html', {'form': form})
 
-
-def task_delete_view(request, pk):
-    task = get_object_or_404(Task, pk=pk)
-    if request.method == 'GET':
-        return render(request, 'task_delete.html', context={'task': task})
-    elif request.method == 'POST':
-        task.delete()
-        return redirect('index')
