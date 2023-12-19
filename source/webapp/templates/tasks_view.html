@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{#{% load static %}#}
 {% block title %}{{ article.title }}{% endblock %}
 {% block menu %}<a class="nav-link" aria-current="page"  href="{% url 'index' %}">На главную</a>{% endblock %}
 {% block content %}
@@ -11,10 +10,8 @@
                 <h5 class="card-subtitle mb-2 text-body-secondary">Типы: {% for types in task.types.all %}
                   {{ types.title }}{% if not forloop.last %}, {% endif %}
                     {% endfor %}</h5>
-
                 <p class="card-text">Created date: {{ task.created_date }}</p>
                 <p class="card-text">Updated date: {{ task.updated_date }}</p>
-
                 <h5>Status: {{ task.status.title }}</h5>
                 <li><a href="{% url 'task_update' task.pk %}">Edit</a></li>
                 <li><a href="{% url 'task_delete' task.pk %}">Delete</a></li>
