@@ -86,12 +86,7 @@ class TaskDeleteView(View):
         task = get_object_or_404(Task, pk=kwargs.get('pk'))
         task.delete()
         return redirect('index')
-def delete_task(request):
-    if request.method == "POST":
-        task_id = request.POST.get('id')
-        task = get_object_or_404(Task, id=task_id)
-        task.delete()
-        return redirect('index')
+
 
 
 
