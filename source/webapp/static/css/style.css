@@ -1,3 +1,18 @@
 h2 {
     color: blue;
 }
+.tasks{
+    background: white;
+    justify-content: space-between;
+    display:flex;
+}
+.form-error {
+    color: red;
+    font-size: 12px;
+    margin: 5px 0 0 0
+}
+
+.field-error {
+    border: solid 1px red;
+    box-shadow: red 0 0 3px;
+}

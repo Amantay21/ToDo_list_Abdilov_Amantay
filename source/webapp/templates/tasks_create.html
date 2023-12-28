@@ -1,30 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Add task{% endblock %}
+{% block title %}Add product{% endblock %}
 {% block menu %}<a class="nav-link" aria-current="page"  href="{% url 'index' %}">На главную</a>{% endblock %}
 
 {% block content %}
-<h1>Create Task</h1>
+<h1>Create product</h1>
 
-<form action="/tasks/add/" method="post">
-    {% csrf_token %}
-
-    <label>Title:</label><br/>
-    <input type="text" name="title"/><br/>
-    <label>Description:</label><br/>
-    <input type="text" name="description"/><br/>
-
-    <label>status:</label><br/>
-    <select name="status" id="">
-        {% for status in status_choices %}
-            <option value="{{ status.0 }}">{{ status.1 }}</option>
-        {% endfor %}
-    </select>
-    <br/>
-
-    <label>Deadline:</label><br/>
-    <input type="text" name="date_of_completion"><br/>
-    <input type="submit" value="Send"/>
+<form action="{% url 'tasks_create' %}" method="post">
+    {% include 'partial/forms.html' with value_submit='Create'  %}
 </form>
 
 <a href="/">На главную</a>
