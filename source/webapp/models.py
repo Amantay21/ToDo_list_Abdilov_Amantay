@@ -25,7 +25,7 @@ class Task(models.Model):
     types = models.ManyToManyField('webapp.Type', related_name='tasks', verbose_name='Тип')
     created_date = models.DateTimeField(verbose_name='Время создания', auto_now_add=True)
     updated_date = models.DateTimeField(verbose_name='Время обновления', auto_now=True)
-    project = models.ForeignKey('webapp.Project', on_delete=models.RESTRICT, verbose_name='Проект',
+    project = models.ForeignKey('webapp.Project', on_delete=models.CASCADE, verbose_name='Проект',
                                 related_name='tasks')
 
     def __str__(self):
