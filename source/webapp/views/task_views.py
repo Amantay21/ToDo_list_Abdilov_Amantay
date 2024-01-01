@@ -6,14 +6,14 @@ from webapp.models import Task
 from django.views.generic import View, TemplateView
 
 
-class IndexView(View):
-
-    def get(self, request, *args, **kwargs):
-        tasks = Task.objects.all()
-        context = {
-            'tasks': tasks
-        }
-        return render(request, 'index.html', context)
+# class IndexView(View):
+#
+#     def get(self, request, *args, **kwargs):
+#         tasks = Task.objects.all()
+#         context = {
+#             'tasks': tasks
+#         }
+#         return render(request, 'index.html', context)
 
 
 class TaskView(TemplateView):
@@ -109,7 +109,5 @@ class TaskDeleteView(View):
         task = get_object_or_404(Task, pk=kwargs.get('pk'))
         task.delete()
         return redirect('index')
-
-
 
 
