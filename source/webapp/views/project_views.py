@@ -1,12 +1,10 @@
 from django.db.models import Q
+from django.urls import reverse
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from webapp.forms import SimpleSearchForm
+from webapp.forms import SimpleSearchForm, ProjectForms
 from webapp.models import Project
-
-
-
 
 
 class ProjectsView(ListView):
@@ -44,3 +42,30 @@ class ProjectsView(ListView):
             context['search_value'] = self.search_value
         return context
 
+
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = 'projects/projects_detail_view.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['tasks'] = self.object.tasks.order_by('-start_date')
+    #     return context
+
+
+class ProjectCreateView(CreateView):
+    model = Project
+    template_name = 'projects/projects_create.html'
+    form_class = ProjectForms
+
+    def get_success_url(self):
+        return reverse('projects_detail_view', kwargs={'pk': self.object.pk})
+
+
+class ProjectUpdateView(UpdateView):
+    model = Project
+    template_name = 'projects/projects_update.html'
+    form_class = ProjectForms
+
+    def get_success_url(self):
+        return reverse('projects_detail_view', kwargs={'pk': self.object.pk})

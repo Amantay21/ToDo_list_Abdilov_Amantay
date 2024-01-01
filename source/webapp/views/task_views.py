@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from webapp.forms import TaskForms
 from webapp.models import Task
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, CreateView
 
 
 # class IndexView(View):
@@ -16,8 +16,10 @@ from django.views.generic import View, TemplateView
 #         return render(request, 'index.html', context)
 
 
-class TaskView(TemplateView):
-    template_name = 'tasks_view.html'
+class TaskView(CreateView):
+    template_name = 'tasks/tasks_view.html'
+    model = Task
+    form_class = TaskForms
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -26,29 +28,29 @@ class TaskView(TemplateView):
 
 
 class TaskCreateView(TemplateView):
-    template_name = 'tasks_create.html'
+    template_name = 'tasks/tasks_create.html'
     form_class = TaskForms
 
     def get(self, request, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = TaskForms()
-        return render(request, 'tasks_create.html', context=context)
+        return render(request, 'tasks/tasks_create.html', context=context)
 
-    def post(self, request, *args, **kwargs):
-        form = TaskForms(data=request.POST)
-        if form.is_valid():
-            types = form.cleaned_data.pop('types')
-            task = Task.objects.create(
-                title=form.cleaned_data['title'],
-                description=form.cleaned_data['description'],
-                status=form.cleaned_data['status'],
-            )
-            task.types.set(types)
-            return redirect('tasks_view', pk=task.pk)
-        return render(request, 'tasks_create.html', {'form': form})
+    # def post(self, request, *args, **kwargs):
+    #     form = TaskForms(data=request.POST)
+    #     if form.is_valid():
+    #         types = form.cleaned_data.pop('types')
+    #         task = Task.objects.create(
+    #             title=form.cleaned_data['title'],
+    #             description=form.cleaned_data['description'],
+    #             status=form.cleaned_data['status'],
+    #         )
+    #         task.types.set(types)
+    #         return redirect('tasks/tasks_view', pk=task.pk)
+    #     return render(request, 'tasks/tasks_create.html', {'form': form})
     def form_valid(self, form):
         self.task = form.save()
-        return redirect('tasks_view', pk=self.task.pk)
+        return redirect('tasks/tasks_view', pk=self.task.pk)
 
 
 
