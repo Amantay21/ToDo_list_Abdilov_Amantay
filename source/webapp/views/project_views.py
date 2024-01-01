@@ -1,5 +1,5 @@
 from django.db.models import Q
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -69,3 +69,9 @@ class ProjectUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('projects_detail_view', kwargs={'pk': self.object.pk})
+
+
+class ProjectDeleteView(DeleteView):
+    model = Project
+    template_name = 'projects/projects_delete.html'
+    success_url = reverse_lazy('index')
