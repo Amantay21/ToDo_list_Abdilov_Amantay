@@ -7,7 +7,6 @@ class TaskForms(forms.ModelForm):
     class Meta:
         model = Task
         fields = ('title', 'description', 'status', 'types')
-        # exclude = ()
         widgets = {'types': forms.CheckboxSelectMultiple}
         error_messages = {
             'title': {

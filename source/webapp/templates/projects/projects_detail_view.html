@@ -2,7 +2,9 @@
 
 {% block menu %}
     <a class="nav-link" aria-current="page"  href="{% url 'index' %}">На главную</a>
-<a class="nav-link" aria-current="page" href="{% url 'tasks_create' %}">Добавить задачу</a>
+    <a class="nav-link" aria-current="page" href="{% url 'projects_update' project.pk%}">Добавить проект</a>
+    <a class="nav-link" aria-current="page" href="{% url 'projects_delete' project.pk%}">Удалить проект</a>
+    <a class="nav-link" aria-current="page" href="{% url 'tasks_create' project.pk%}">Добавить задачу</a>
 {% endblock %}
 
 {% block content %}
