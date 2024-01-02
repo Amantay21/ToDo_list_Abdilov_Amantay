@@ -1,20 +1,136 @@
 [
-  {
-    "model": "auth.user",
+{
+    "model": "webapp.type",
     "pk": 1,
     "fields": {
-      "password": "pbkdf2_sha256$600000$Ty3XQWyA5RkILsaefMbwkd$vMmJ+G0mmhM0DohEuJowRdgq+XqZ1kg34iCslqhl2AY=",
-      "last_login": "2023-11-24T13:30:23.688Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2023-11-24T13:30:05.354Z",
-      "groups": [],
-      "user_permissions": []
+        "title": "Task"
     }
-  }
+},
+{
+    "model": "webapp.type",
+    "pk": 2,
+    "fields": {
+        "title": "Bug"
+    }
+},
+{
+    "model": "webapp.type",
+    "pk": 3,
+    "fields": {
+        "title": "Enhancement"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 1,
+    "fields": {
+        "title": "New"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 2,
+    "fields": {
+        "title": "In Progress"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 3,
+    "fields": {
+        "title": "Done"
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 3,
+    "fields": {
+        "title": "Title3",
+        "description": "description",
+        "status": 3,
+        "created_date": "2023-12-16T14:27:52.717Z",
+        "updated_date": "2023-12-18T12:06:38.145Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 5,
+    "fields": {
+        "title": "qwe",
+        "description": "qwe",
+        "status": 1,
+        "created_date": "2023-12-18T10:40:42.592Z",
+        "updated_date": "2023-12-18T12:00:26.218Z",
+        "types": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 6,
+    "fields": {
+        "title": "title1",
+        "description": "qwwq",
+        "status": 2,
+        "created_date": "2023-12-18T11:10:30.730Z",
+        "updated_date": "2023-12-18T11:10:30.730Z",
+        "types": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 7,
+    "fields": {
+        "title": "some task",
+        "description": "some task",
+        "status": 2,
+        "created_date": "2023-12-18T12:31:22.069Z",
+        "updated_date": "2023-12-18T12:31:22.069Z",
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 8,
+    "fields": {
+        "title": "title21312",
+        "description": "qwertyuiop",
+        "status": 1,
+        "created_date": "2023-12-18T12:31:42.164Z",
+        "updated_date": "2023-12-18T12:31:42.164Z",
+        "types": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "webapp.task",
+    "pk": 9,
+    "fields": {
+        "title": "qwerty",
+        "description": "zxcvbnm,",
+        "status": 3,
+        "created_date": "2023-12-18T12:32:51.205Z",
+        "updated_date": "2023-12-18T12:32:51.205Z",
+        "types": [
+            2,
+            3
+        ]
+    }
+}
 ]
