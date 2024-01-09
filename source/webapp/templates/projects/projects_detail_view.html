@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-    <a class="nav-link" aria-current="page"  href="{% url 'index' %}">На главную</a>
-    <a class="nav-link" aria-current="page" href="{% url 'projects_update' project.pk%}">Добавить проект</a>
-    <a class="nav-link" aria-current="page" href="{% url 'projects_delete' project.pk%}">Удалить проект</a>
-    <a class="nav-link" aria-current="page" href="{% url 'tasks_create' project.pk%}">Добавить задачу</a>
+    <a class="nav-link" aria-current="page"  href="{% url 'webapp:index' %}">На главную</a>
+    <a class="nav-link" aria-current="page" href="{% url 'webapp:projects_update' project.pk%}">Добавить проект</a>
+    <a class="nav-link" aria-current="page" href="{% url 'webapp:projects_delete' project.pk%}">Удалить проект</a>
+    <a class="nav-link" aria-current="page" href="{% url 'webapp:tasks_create' project.pk%}">Добавить задачу</a>
 {% endblock %}
 
 {% block content %}
@@ -35,9 +35,9 @@
                 <h6 class="card-subtitle mb-2 ">Типы: {% for types in task.types.all %}
                   {{ types.title }}{% if not forloop.last %}, {% endif %}
                     {% endfor %}</h6>
-                <p><a href="{% url 'tasks_view' pk=task.pk %}" class="card-link">Подробнее...</a></p>
-                <p><a href="{% url 'task_update' pk=task.pk %}" class="card-link">Редактировать</a></p>
-                <p><a href="{% url 'task_delete' pk=task.pk %}" class="card-link" >Delete</a></p>
+                <p><a href="{% url 'webapp:tasks_view' pk=task.pk %}" class="card-link">Подробнее...</a></p>
+                <p><a href="{% url 'webapp:task_update' pk=task.pk %}" class="card-link">Редактировать</a></p>
+                <p><a href="{% url 'webapp:task_delete' pk=task.pk %}" class="card-link" >Delete</a></p>
 
             </div>
         </div>

@@ -47,11 +47,6 @@ class ProjectDetailView(DetailView):
     model = Project
     template_name = 'projects/projects_detail_view.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['tasks'] = self.object.tasks.order_by('-start_date')
-    #     return context
-
 
 class ProjectCreateView(CreateView):
     model = Project
@@ -59,7 +54,7 @@ class ProjectCreateView(CreateView):
     form_class = ProjectForms
 
     def get_success_url(self):
-        return reverse('projects_detail_view', kwargs={'pk': self.object.pk})
+        return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
 
 
 class ProjectUpdateView(UpdateView):
@@ -68,10 +63,10 @@ class ProjectUpdateView(UpdateView):
     form_class = ProjectForms
 
     def get_success_url(self):
-        return reverse('projects_detail_view', kwargs={'pk': self.object.pk})
+        return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
 
 
 class ProjectDeleteView(DeleteView):
     model = Project
     template_name = 'projects/projects_delete.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('webapp:index')
