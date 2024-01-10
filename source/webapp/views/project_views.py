@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -52,6 +53,11 @@ class ProjectCreateView(CreateView):
     model = Project
     template_name = 'projects/projects_create.html'
     form_class = ProjectForms
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('accounts:login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
