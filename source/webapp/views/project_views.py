@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
@@ -49,15 +50,10 @@ class ProjectDetailView(DetailView):
     template_name = 'projects/projects_detail_view.html'
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     model = Project
     template_name = 'projects/projects_create.html'
     form_class = ProjectForms
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('accounts:login')
-        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
