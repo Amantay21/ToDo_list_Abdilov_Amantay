@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Delete Task{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'webapp:tasks_view' pk=task.pk %}">View</a></li>
+{% endblock %}
+{% block content %}
+    <h1>Are you sure want to delete this task "{{ task }}"?</h1>
+    <form method="POST" action="{% url "webapp:task_delete" pk=task.pk %}" class="text-center">
+        {% csrf_token %}
+        <p><input type="submit" value="Confirm"></p>
+        </form>
+    <a href="{% url "webapp:index" %}" class="text-center" >Cancel</a>
+
+{% endblock %}

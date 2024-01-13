@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block menu %}<a class="nav-link" aria-current="page"  href="{% url 'webapp:index' %}">На главную</a>{% endblock %}
+{% block content %}
+    <h1>Task</h1>
+        <div class="card" >
+            <div class="card-body">
+                <h3 class="card-title">{{ task.title }}</h3>
+                <h5 class="card-title">{{ task.description }}</h5>
+                <h5 class="card-subtitle mb-2 text-body-secondary">Типы: {% for types in task.types.all %}
+                  {{ types.title }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}</h5>
+                <p class="card-text">Created date: {{ task.created_date }}</p>
+                <p class="card-text">Updated date: {{ task.updated_date }}</p>
+                <h5>Status: {{ task.status.title }}</h5>
+                <li><a href="{% url 'webapp:task_update' task.pk %}">Edit</a></li>
+                <li><a href="{% url 'webapp:task_delete' task.pk %}">Delete</a></li>
+            </div>
+        </div>
+{% endblock %}
