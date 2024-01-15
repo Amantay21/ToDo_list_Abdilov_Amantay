@@ -1,6 +1,6 @@
 from django import forms
 
-from webapp.models import Status, Type, Task, Project
+from webapp.models import Task, Project
 
 
 class TaskForms(forms.ModelForm):
@@ -44,11 +44,11 @@ class ProjectForms(forms.ModelForm):
         fields = ('title', 'description', 'start_date', 'end_date')
 
 
-# class TaskForms(forms.Form):
-#     title = forms.CharField(max_length=200, required=True, label='Заголовок')
-#     description = forms.CharField(max_length=400, required=True, label='Описание')
-#     status = forms.ModelChoiceField(queryset=Status.objects.all(), label='status')
-#     types = forms.ModelMultipleChoiceField(queryset=Type.objects.all(), label='Типы')
-
 class SimpleSearchForm(forms.Form):
     search = forms.CharField(max_length=100, required=False, label='Найти')
+
+
+class EditUsersInProjectForms(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['users']
