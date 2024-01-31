@@ -42,3 +42,8 @@ class Project(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    class Meta:
+        permissions = [
+            ('edit_users_in_project', 'Может изменять пользователей в проекте')
+        ]

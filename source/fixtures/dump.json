@@ -1,0 +1,241 @@
+[
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "title": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "title": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "title": "Enhancement"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "title": "New"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "title": "In Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "title": "Done"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "title": "Task1",
+    "description": "Description qweuiopqwertyuiqwertweyuioqwe",
+    "status": 2,
+    "created_date": "2023-12-31T16:06:43.941Z",
+    "updated_date": "2024-01-02T06:26:44.681Z",
+    "project": 1,
+    "types": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "title": "Task2",
+    "description": "Description",
+    "status": 2,
+    "created_date": null,
+    "updated_date": "2023-12-31T16:13:06.631Z",
+    "project": 1,
+    "types": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "title": "Task4",
+    "description": "Описание:",
+    "status": 3,
+    "created_date": "2024-01-01T10:37:35.296Z",
+    "updated_date": "2024-01-01T10:37:35.296Z",
+    "project": 1,
+    "types": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "title": "qwert",
+    "description": "qwerop[",
+    "status": 2,
+    "created_date": "2024-01-02T05:31:40.574Z",
+    "updated_date": "2024-01-02T05:31:40.575Z",
+    "project": 2,
+    "types": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 7,
+  "fields": {
+    "title": "some task",
+    "description": "sadbsdajcvxalsxas;x,as',x'apskcodsmcmasdcxfascxfsacscdsc sdbc sdbc dgcgsdc s dgv gsdcsd sdcvsdg gd gsdvsdg gsd gsd dsgctscvsdycgaspdcapsx,sax",
+    "status": 3,
+    "created_date": "2024-01-02T05:34:42.243Z",
+    "updated_date": "2024-01-02T05:34:42.243Z",
+    "project": 2,
+    "types": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 8,
+  "fields": {
+    "title": "тайтл карочь",
+    "description": "ну описание",
+    "status": 2,
+    "created_date": "2024-01-09T12:24:30.547Z",
+    "updated_date": "2024-01-09T12:24:30.547Z",
+    "project": 4,
+    "types": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 9,
+  "fields": {
+    "title": "task1",
+    "description": "desxc",
+    "status": 2,
+    "created_date": "2024-01-11T06:26:37.434Z",
+    "updated_date": "2024-01-11T06:26:37.434Z",
+    "project": 6,
+    "types": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 10,
+  "fields": {
+    "title": "task1",
+    "description": "qweqweqweqwe",
+    "status": 1,
+    "created_date": "2024-01-15T11:12:42.923Z",
+    "updated_date": "2024-01-15T11:12:42.923Z",
+    "project": 7,
+    "types": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "title": "Project names",
+    "description": "Descrption",
+    "start_date": "2023-12-31",
+    "end_date": null,
+    "users": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "title": "Project2",
+    "description": "Let’s learn by example.\r\n\r\nThroughout this tutorial, we’ll walk you through the creation of a basic poll application.\r\n\r\nIt’ll consist of two parts:\r\n\r\nA public site that lets people view polls and vote in them.\r\nAn admin site that lets you add, change, and delete polls.\r\nWe’ll assume you have Django installed already. You can tell Django is installed and which version by running the following command in a shell prompt (indicated by the $ prefix):",
+    "start_date": "2023-12-12",
+    "end_date": "2024-01-12",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "title": "Хороший проект",
+    "description": "ну хороший он",
+    "start_date": "2023-12-12",
+    "end_date": "2025-12-12",
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "title": "Projecto",
+    "description": "desc",
+    "start_date": "2023-12-12",
+    "end_date": null,
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "title": "CRM-system",
+    "description": "desc",
+    "start_date": "2024-01-01",
+    "end_date": null,
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "title": "Project #6",
+    "description": "descsadalsd,/;asxas",
+    "start_date": "2024-01-10",
+    "end_date": null,
+    "users": []
+  }
+}
+]

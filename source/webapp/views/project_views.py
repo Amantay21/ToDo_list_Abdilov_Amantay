@@ -1,6 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
-from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -13,7 +12,7 @@ class ProjectsView(ListView):
     model = Project
     template_name = 'projects/index.html'
     context_object_name = 'projects'
-    paginate_by = 5
+    paginate_by = 4
 
     def get_search_form(self):
         return SimpleSearchForm(self.request.GET)
@@ -50,34 +49,49 @@ class ProjectDetailView(DetailView):
     template_name = 'projects/projects_detail_view.html'
 
 
-class ProjectCreateView(LoginRequiredMixin, CreateView):
+class ProjectCreateView(PermissionRequiredMixin, CreateView):
     model = Project
     template_name = 'projects/projects_create.html'
     form_class = ProjectForms
+    permission_required = 'webapp.add_project'
 
     def get_success_url(self):
         return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectUpdateView(UpdateView):
+class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'projects/projects_update.html'
     form_class = ProjectForms
+    permission_required = 'webapp.change_project'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
     def get_success_url(self):
         return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     model = Project
     template_name = 'projects/projects_delete.html'
     success_url = reverse_lazy('webapp:index')
 
+    permission_required = 'webapp.delete_project'
 
-class EditUsersInProjectView(UpdateView):
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
+
+
+class EditUsersInProjectView(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'projects/projects_update.html'
     form_class = EditUsersInProjectForms
+
+    permission_required = 'webapp.edit_users_in_project'
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().users.all()
 
     def get_success_url(self):
         return reverse('webapp:projects_detail_view', kwargs={'pk': self.object.pk})
